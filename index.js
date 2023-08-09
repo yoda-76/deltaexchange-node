@@ -22,8 +22,13 @@ const DeltaRestClient = require("delta-rest-client");
 new DeltaRestClient("k6yPWzNpaYnxOt6TjhgVnrRQB9qubc", "J7gy4yTEoIDxoZPekyyoYF4MS7bDYC2JuN0PNMiXmo59g7sut4hwSw1qDrrS").then(client => {
     client.apis.Wallet.getBalances()
     .then(function(response) {
-      console.log("Wallet.getBalances success: ", response.body);
-      res.send(response.body)
+    //   console.log(response.body["result"]);
+      const resp=response.body["result"].filter(item=>{
+        if(item["asset_id"]==5){
+            console.log(item.balance)
+            res.send(item.balance)
+        }
+      })
     }).catch(function(e) {
       console.log("Error 111: ", e);
       res.send({e})
