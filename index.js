@@ -29,10 +29,10 @@ new DeltaRestClient(key,secret).then(client => {
     client.apis.Wallet.getBalances()
     .then(function(response) {
     //   console.log(response.body["result"]);
-      const resp=response.body["result"].filter(item=>{
+      response.body["result"].filter(item=>{
         if(item["asset_id"]==5){
-            console.log(item.balance)
-            res.send((item.balance/initial_wallet)*100)
+            console.log((item.balance/initial_wallet)*100)
+            res.send({status:200,data:(item.balance/initial_wallet)*100})
         }
       })
     }).catch(function(e) {
