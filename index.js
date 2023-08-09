@@ -15,11 +15,11 @@ app.use(cors());
 
 
   //Routes
-  app.get("/nav",async(req,res)=>{
+  app.post("/nav",async(req,res)=>{
     
-
+const {key,secret}=req.body
 const DeltaRestClient = require("delta-rest-client");
-new DeltaRestClient("k6yPWzNpaYnxOt6TjhgVnrRQB9qubc", "J7gy4yTEoIDxoZPekyyoYF4MS7bDYC2JuN0PNMiXmo59g7sut4hwSw1qDrrS").then(client => {
+new DeltaRestClient(key,secret).then(client => {
     client.apis.Wallet.getBalances()
     .then(function(response) {
     //   console.log(response.body["result"]);
