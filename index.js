@@ -15,11 +15,12 @@ app.use(cors());
 
 
   //Routes
-  app.get("/nav",async(req,res)=>{
+  app.post("/nav",async(req,res)=>{
     
-// const {key,secret}=req.body
-const key="7JL6ho3WoVXq2T6rHRx7FUvQciAJgA"
-const secret= "7hmBQDj6wH24ro1ktMu636g3Y8dx7Em93als99jq4HH2g58VQBIKFXqQKLCO"
+const {key,secret}=req.body
+// const key="7JL6ho3WoVXq2T6rHRx7FUvQciAJgA"
+// const secret= "7hmBQDj6wH24ro1ktMu636g3Y8dx7Em93als99jq4HH2g58VQBIKFXqQKLCO"
+// cons
 const initial_wallet=100 //can be changed accordingly
 
 const DeltaRestClient = require("delta-rest-client");
