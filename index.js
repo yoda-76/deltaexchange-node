@@ -32,7 +32,7 @@ new DeltaRestClient(key,secret).then(client => {
       response.body["result"].filter(item=>{
         if(item["asset_id"]==5){
             console.log((item.balance/initial_wallet)*100)
-            res.send({status:200,data:(item.balance/initial_wallet)*100})
+            // res.send({status:200,data:(item.balance/initial_wallet)*100})
         }
       })
     }).catch(function(e) {
@@ -41,7 +41,8 @@ new DeltaRestClient(key,secret).then(client => {
     });
     client.apis.Assets.getAssets()
     .then(function(response) {
-      console.log("Assets.getAssets success:");
+      console.log("Assets.getAssets success:",response);
+      res.send(response)
     })
     .catch(function(e) {
       console.log("Error 111: ", e);
