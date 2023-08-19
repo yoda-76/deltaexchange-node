@@ -40,6 +40,7 @@ new DeltaRestClient(key,secret).then(client => {
     //   res.send({e})
     // });
     client.apis.Positions.getPositions({
+      product_ids: "8"
     })
     .then(function(response) {
       console.log("Positions.getPositions success: ", response.data);
@@ -48,7 +49,7 @@ new DeltaRestClient(key,secret).then(client => {
     }).catch(function(e) {
       console.log("Error 111: ", e);
       res.send(e)
-
+      
     });
     // client.apis.Assets.getAssets()
     // .then(function(response) {
