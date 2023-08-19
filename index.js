@@ -39,26 +39,26 @@ new DeltaRestClient(key,secret).then(client => {
     //   console.log("Error 111: ", e);
     //   res.send({e})
     // });
-    client.apis.Positions.getPositions({
-      product_ids: "8"
-    })
-    .then(function(response) {
-      console.log("Positions.getPositions success: ", response.data);
-      res.send(response)
-
-    }).catch(function(e) {
-      console.log("Error 111: ", e);
-      res.send(e)
-      
-    });
-    // client.apis.Assets.getAssets()
-    // .then(function(response) {
-    //   console.log("Assets.getAssets success:",response);
-    //   res.send(response)
+    // client.apis.Positions.getPositions({
+    //   product_ids: "8"
     // })
-    // .catch(function(e) {
+    // .then(function(response) {
+    //   console.log("Positions.getPositions success: ", response.data);
+    //   res.send(response)
+
+    // }).catch(function(e) {
     //   console.log("Error 111: ", e);
+    //   res.send(e)
+      
     // });
+    client.apis.Assets.getAssets()
+    .then(function(response) {
+      console.log("Assets.getAssets success:",response);
+      res.send(response)
+    })
+    .catch(function(e) {
+      console.log("Error 111: ", e);
+    });
 
 
 });
