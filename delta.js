@@ -24,3 +24,5 @@ new DeltaRestClient(hardcodedApiKey, hardcodedApiSecret).then(client => {
             console.log("Error:", e);
         });
 });
+
+
