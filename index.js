@@ -26,18 +26,28 @@ const initial_wallet=100 //can be changed accordingly
 
 const DeltaRestClient = require("delta-rest-client");
 new DeltaRestClient(key,secret).then(client => {
-    client.apis.Wallet.getBalances()
+    // client.apis.Wallet.getBalances()
+    // .then(function(response) {
+    // //   console.log(response.body["result"]);
+    //   response.body["result"].filter(item=>{
+    //     if(item["asset_id"]==5){
+    //         console.log((item.balance/initial_wallet)*100)
+    //         res.send({status:200,data:(item.balance/initial_wallet)*100})
+    //     }
+    //   })
+    // }).catch(function(e) {
+    //   console.log("Error 111: ", e);
+    //   res.send({e})
+    // });
+    client.apis.Positions.getPositions({
+      product_ids: "7"
+    })
     .then(function(response) {
-    //   console.log(response.body["result"]);
-      response.body["result"].filter(item=>{
-        if(item["asset_id"]==5){
-            console.log((item.balance/initial_wallet)*100)
-            res.send({status:200,data:(item.balance/initial_wallet)*100})
-        }
-      })
+      console.log("Positions.getPositions success: ", response.data);
+      res.send(response)
+
     }).catch(function(e) {
       console.log("Error 111: ", e);
-      res.send({e})
     });
     // client.apis.Assets.getAssets()
     // .then(function(response) {
