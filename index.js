@@ -39,6 +39,13 @@ new DeltaRestClient(key,secret).then(client => {
       console.log("Error 111: ", e);
       res.send({e})
     });
+    client.apis.Assets.getAssets()
+    .then(function(response) {
+      console.log("Assets.getAssets success:");
+    })
+    .catch(function(e) {
+      console.log("Error 111: ", e);
+    });
 
 
 });
